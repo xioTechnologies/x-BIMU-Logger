@@ -17,7 +17,7 @@ The Windows application is a stand-alone executable written in C#.  It contains 
 Example data (plotted in MATLAB)
 ---------------------------------
 
-The example data and MATLAB script to demonstrate the synchronization achieved.  The example data was logged from 9 x-BIMUs, each set up to send sensor data at 128 Hz with binary packet mode enabled.  Sending of quaternion packets were disabled.  The logged data represents the 9 x-BIMUs sitting stationary on a desk for 1 minute.  The desk was tapped 5 times at the start and end of the logging session.  The synchronisation is confirmed by plotting the 9 gyroscope x axis measurements and checking if they align in time.
+The example data and MATLAB script to demonstrate the synchronization achieved.  The example data was logged from 9 x-BIMUs, each set up to send sensor data at 128 Hz with binary packet mode enabled.  The 9 XSticks were connected to the computer via 2 USB hubs.  Sending of quaternion packets were disabled.  The logged data represents the 9 x-BIMUs sitting stationary on a desk for 1 minute.  The desk was tapped 5 times at the start and end of the logging session.  The synchronisation is confirmed by plotting the 9 gyroscope x axis measurements and checking if they align in time.
 
 <div align="center">
 <img src="https://raw.github.com/xioTechnologies/x-BIMU-Logger/master/Example%20Data%20Plot.png"/>
