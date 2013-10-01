@@ -55,7 +55,7 @@ namespace x_BIMU_Logger
         private void Form1_Load(object sender, EventArgs e)
         {
             // Set initial form values
-            this.Text = Assembly.GetExecutingAssembly().GetName().Name;
+            this.Text = Assembly.GetExecutingAssembly().GetName().Name + " " + Assembly.GetExecutingAssembly().GetName().Version.Major.ToString() + "." + Assembly.GetExecutingAssembly().GetName().Version.Minor.ToString();
             textBoxDirectory.Text = Directory.GetCurrentDirectory();
             textBoxFileName.Text = "LoggedData";
             buttonStartLogging.Text = "Start Logging";
