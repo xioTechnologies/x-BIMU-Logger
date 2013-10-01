@@ -27,11 +27,16 @@ The example data and MATLAB script to demonstrate the synchronization achieved. 
 <img src="https://raw.github.com/xioTechnologies/x-BIMU-Logger/master/Example%20Data%20Plot%20%28Single%20Tap%29.png"/>
 </div>
 
-FTDI Driver Latency Timer
+FTDI driver latency timer
 ---------------------------------
 
-The XSticks use the [FTDI USB Serial Port drivers](http://www.ftdichip.com/Drivers/VCP.htm).  The default setting of of the driver is for a Latency Timer value of 16 ms.  This value will prevent accurate synchronisation of the received x-BIMU packets.  The Latency Timer value should be changed to 1 ms (the minimum) via *Device Manager > USB Serial Port Properties > Advanced*.
+The XSticks use the [FTDI USB Serial Port drivers](http://www.ftdichip.com/Drivers/VCP.htm).  The default setting of the driver is for a Latency Timer value of 16 ms.  This value will prevent accurate synchronisation of the received x-BIMU packets.  The Latency Timer value should be changed to 1 ms (the minimum) via *Device Manager > USB Serial Port Properties > Advanced*.
 
 <div align="center">
 <img src="https://raw.github.com/xioTechnologies/x-BIMU-Logger/master/FTDI%20Driver%20Latency%20Timer.png"/>
 </div>
+
+Version history
+---------------------------------
+
+* **v1.0**  Initial release
