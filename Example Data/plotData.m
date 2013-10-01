@@ -14,21 +14,21 @@ battery = {};
 listing = dir(strcat(dirName, '*_*_Quaterion.csv'));
 if(length(listing) > 0)
     for i = 1:length(listing)  % for each sensor
-        quaternion{i} = csvread(strcat(dirName, listing(i).name));
+        quaternion{i} = csvread(strcat(dirName, listing(i).name), 1, 0);
     end
 end
 
 listing = dir(strcat(dirName, '*_*_Sensor.csv'));
 if(length(listing) > 0)
     for i = 1:length(listing)  % for each sensor
-        sensor{i} = csvread(strcat(dirName, listing(i).name));
+        sensor{i} = csvread(strcat(dirName, listing(i).name), 1, 0);
     end
 end
 
 listing = dir(strcat(dirName, '*_*_Battery.csv'));
 if(length(listing) > 0)
     for i = 1:length(listing)  % for each sensor
-        battery{i} = csvread(strcat(dirName, listing(i).name));
+        battery{i} = csvread(strcat(dirName, listing(i).name), 1, 0);
     end
 end
 

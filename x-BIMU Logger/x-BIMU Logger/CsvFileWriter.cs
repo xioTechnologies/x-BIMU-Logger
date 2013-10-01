@@ -8,20 +8,25 @@ using System.Globalization;
 namespace x_BIMU_Logger
 {
     /// <summary>
-    /// CSV file writer calss to handle writing of x-BIMU packets to file.
+    /// CSV file writer class to handle writing of x-BIMU packets to file.
     /// </summary>
     class CsvFileWriter
     {
         /// <summary>
-        /// File indexes of streamWriters array.  Labels will be used to extend corrispdong CSV file name.
+        /// File indexes of streamWriters array.  Labels will be used to extend corresponding CSV file name.
         /// </summary>
         private enum FileIndexes
         {
-            Sensor,
             Quaternion,
+            Sensor,
             Battery,
             NumberOfFiles
         }
+
+        /// <summary>
+        /// Column headings to appear as first line of each CSV file.
+        /// </summary>
+        private string[] columnHeadings;
 
         /// <summary>
         /// File path of CSV files.  Actual file name will be extended with label of packet type.
@@ -29,7 +34,7 @@ namespace x_BIMU_Logger
         private string filePath;
 
         /// <summary>
-        /// Write enabled flag to avoid asychronous issues.
+        /// Write enabled flag to avoid asynchronous issues.
         /// </summary>
         private bool writesEnabled;
 
@@ -39,7 +44,7 @@ namespace x_BIMU_Logger
         private StreamWriter[] streamWriters;
 
         /// <summary>
-        /// Start time of logging used to calcuate time stamp.
+        /// Start time of logging used to calculate time stamp.
         /// </summary>
         private DateTime startDateTime;
 
@@ -51,6 +56,9 @@ namespace x_BIMU_Logger
         /// </param>
         public CsvFileWriter(string filePath)
         {
+            columnHeadings = new string[] { "time (ms),w (10000),x (10000),y (10000),z (10000),packet counter",
+                                            "time (ms),gyroscope x (0.1 deg/s),gyroscope y (0.1 deg/s),gyroscope z (0.1 deg/s),accelerometer x (mg),accelerometer y (mg),accelerometer z (mg),magnetometer x (mG),magnetometer y (mG),magnetometer z (mG),packet counter",
+                                            "time (ms),battery voltage (mV),packet counter" };
             this.filePath = filePath;
             writesEnabled = true;
             streamWriters = new StreamWriter[(int)FileIndexes.NumberOfFiles];
@@ -95,16 +103,16 @@ namespace x_BIMU_Logger
         /// Write quaternion data to CSV file.
         /// </summary>
         /// <param name="w">
-        /// Quaternion w compoennt.
+        /// Quaternion w component.
         /// </param>
         /// <param name="x">
-        /// Quaternion x compoennt.
+        /// Quaternion x component.
         /// </param>
         /// <param name="y">
-        /// Quaternion y compoennt.
+        /// Quaternion y component.
         /// </param>
-        /// <param namez"z">
-        /// Quaternion w compoennt.
+        /// <param name="z">
+        /// Quaternion w component.
         /// </param>
         /// <param name="counter">
         /// Packet counter.
@@ -170,7 +178,7 @@ namespace x_BIMU_Logger
         /// Write array of floats as CSV file for given file index.
         /// </summary>
         /// <param name="values">
-        /// Array of flaots to be written as CSVs.
+        /// Array of floats to be written as CSVs.
         /// </param>
         /// <param name="fileIndex">
         /// FIle index to be written to.
@@ -189,6 +197,7 @@ namespace x_BIMU_Logger
                 if (streamWriters[(int)fileIndex] == null)
                 {
                     streamWriters[(int)fileIndex] = new System.IO.StreamWriter(filePath + "_" + fileIndex.ToString() + ".csv", false);
+                    streamWriters[(int)fileIndex].WriteLine(columnHeadings[(int)fileIndex]);
                 }
 
                 // Write line

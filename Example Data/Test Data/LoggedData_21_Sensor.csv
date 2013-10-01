@@ -1,3 +1,4 @@
+time (ms),gyroscope x (0.1 deg/s),gyroscope y (0.1 deg/s),gyroscope z (0.1 deg/s),accelerometer x (mg),accelerometer y (mg),accelerometer z (mg),magnetometer x (mG),magnetometer y (mG),magnetometer z (mG),packet counter
 0,0,6,-15,18,12,1030,1753,602,-951,237
 7,1,7,-16,12,9,1041,1756,605,-951,238
 14,-1,7,-15,15,10,1034,1758,602,-951,239
