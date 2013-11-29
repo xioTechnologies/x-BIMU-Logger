@@ -35,7 +35,7 @@ end
 % -------------------------------------------------------------------------
 % Plot gyroscope x axis of all sensors
 
-colours = hsv(9);
+colours = hsv(length(sensor));
 
 figure('Position',[10,40,800,450]);
 hold on;
